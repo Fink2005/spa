@@ -74,7 +74,7 @@ export default function LamSachVaCapNuoc() {
           </p>
           <ul className="my-4">
             <li className="text-white text-lg font-extralight">
-              Thời gian: 50 phút
+              Thời gian: 90 phút
             </li>
             <li className="text-white text-lg font-extralight">
               Giá sản phẩm Nhật 250k{" "}
