@@ -3,12 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { ConfigProvider } from 'antd';
+const theme={
+  components: {
+    Carousel: {
+      arrowSize : 30,
+      arrowOffset: 18
+    },
+  }
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
+
+<ConfigProvider theme={theme}> 
   <React.StrictMode>
     <App />
   </React.StrictMode>
+</ConfigProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

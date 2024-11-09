@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './template/Layout';
+import MainPage from './MainPage/MainPage';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import CompoSpa from './ComboSpa/CompoSpa';
+import LamSachVaCapNuoc from './LamSachVaCapNuoc/LamSachVaCapNuoc';
+import ChamSocDaSang from './ChamSocDaSang/ChamSocDaSang';
+import TreHoaNangCaoCam from './TreHoaNangCaoCam/TreHoaNangCaoCam';
+import NanMunVaLamSach from './NanMunVaLamSach/NanMunVaLamSach';
+import MenuSpa from './MenuSpa/MenuSpa';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={ <Layout content={<MainPage/>} />} />
+        <Route path='/chamSocDaCongNgheCao' element={ <Layout content={<CompoSpa/>} />} />
+        <Route path='/chamSocDaCongNgheCao/lamSachVaCapNuoc' element={ <Layout content={<LamSachVaCapNuoc/>} />} />
+        <Route path='/chamSocDaCongNgheCao/chamSocDaSang' element={ <Layout content={<ChamSocDaSang/>} />} />
+        <Route path='/chamSocDaCongNgheCao/treHoaNangCaoCam' element={ <Layout content={<TreHoaNangCaoCam/>} />} />
+        <Route path='/chamSocDaCongNgheCao/nanMunVaLamSach' element={ <Layout content={<NanMunVaLamSach/>} />} />
+        <Route path='/Menu' element={ <Layout content={<MenuSpa/>} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
