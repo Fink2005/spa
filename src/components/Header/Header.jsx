@@ -15,7 +15,10 @@ export default function Header() {
         </div>
         <nav className="flex items-center ">
           <div className="w-8">
-            <a href="https://www.facebook.com/profile.php?id=100092274255797">
+            <a
+              href="https://www.facebook.com/profile.php?id=100092274255797"
+              className="cursor-pointer"
+            >
               <img src="/assets/imgCarousel/facebook.png" alt="" />
             </a>
           </div>
