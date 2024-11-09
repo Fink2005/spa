@@ -1,7 +1,6 @@
 import { Carousel, Image, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Element } from "react-scroll";
 
 export default function SpaPage({ sectionRef }) {
   const navigate = useNavigate();

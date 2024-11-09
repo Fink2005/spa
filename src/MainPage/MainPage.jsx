@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import CarouselPage from "./CarouselPage";
 import SpaPage from "./SpaPage";
-import { Link, Element } from "react-scroll";
-import { Dropdown, FloatButton } from "antd";
-import { CommentOutlined, CalendarOutlined } from "@ant-design/icons";
+import { FloatButton } from "antd";
+import { CalendarOutlined } from "@ant-design/icons";
 export default function MainPage() {
   const [open, setOpen] = useState(false);
   let handleToCall = () => {
