@@ -9,16 +9,13 @@ export default function Header() {
           onClick={() => {
             navigate("/");
           }}
-          className="w-20"
+          className="w-20  cursor-pointer"
         >
           <img src="/assets/imgCarousel/logo.jpg" alt="" />
         </div>
         <nav className="flex items-center ">
           <div className="w-8">
-            <a
-              href="https://www.facebook.com/profile.php?id=100092274255797"
-              className="cursor-pointer"
-            >
+            <a href="https://www.facebook.com/profile.php?id=100092274255797">
               <img src="/assets/imgCarousel/facebook.png" alt="" />
             </a>
           </div>
