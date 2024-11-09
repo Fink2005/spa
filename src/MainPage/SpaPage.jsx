@@ -71,7 +71,7 @@ export default function SpaPage({ sectionRef }) {
           </p>
           <p className="text-lg text-blue-500">
             Địa chỉ: 02 Thảo Nguyên - Ecopark Hotline:{" "}
-            <a className="hover:text-gray-500" href="+84869244686">
+            <a className="hover:text-gray-500" href="tel:+84869244686">
               0869 244 686
             </a>{" "}
           </p>
