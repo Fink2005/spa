@@ -51,14 +51,25 @@ export default function LamSachVaCapNuoc() {
           <p>bạn thể hiện sự quý trọng </p>
         </div>
       </div>
-      <div className="py-5 ps-5">
-        <NavLink to="/" className="text-white font-thin text-lg">
-          Trang chủ
-        </NavLink>
-        <i class="fa fa-angle-right text-white mx-2"></i>
-        <NavLink to="/Menu" className="text-white font-thin text-lg">
-          Menu
-        </NavLink>
+      <div className="py-5 ps-5 flex items-center justify-between">
+        <div>
+          <NavLink to="/" className="text-white font-thin text-lg">
+            Trang chủ
+          </NavLink>
+          <i class="fa fa-angle-right text-white mx-2"></i>
+          <NavLink to="/Menu" className="text-white font-thin text-lg">
+            Menu
+          </NavLink>
+        </div>
+        <div className="pe-5">
+          <NavLink to="/chamSocDaCongNgheCao">
+            <img
+              className="w-5"
+              src="/assets/imgComboSpa/previous.png"
+              alt=""
+            />{" "}
+          </NavLink>
+        </div>
       </div>
       <hr />
       <div className="flex flex-col items-center m-5">
