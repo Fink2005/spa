@@ -56,15 +56,16 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className=" lg:m-5 flex flex-col items-center">
-          <p className=" text-white text-sm  w-60 font-light">
-            <span className="text-white text-2xl ">Địa chỉ</span>: 02 Thảo
-            Nguyên
-          </p>
-          <p className=" text-white text-sm  w-60 font-light">
-            {" "}
-            Ecopark Hotline: 0869 244 686
-          </p>
+        <div className=" lg:m-5 flex flex-col items-center justify-center">
+          <div className="flex items-center ">
+            <p className=" text-white text-sm   font-light md:me-4 me-2">
+              <span className="text-white text-2xl ">Địa chỉ:</span>
+            </p>
+            <div className=" text-white text-sm  ">
+              <p className="  font-light"> 02 Thảo Nguyên, Ecopark</p>
+              <p className="  font-light"> Hotline: 0869 244 686</p>
+            </div>
+          </div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.036228888132!2d105.93950475852938!3d20.952240386400167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135afa0a406b925%3A0x158924f013a77f60!2zMiBUaOG6o28gTmd1ecOqbiwgUGjhu6VuZyBDw7RuZywgVsSDbiBHaWFuZywgSMawbmcgWcOqbiwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1730962285182!5m2!1svi!2s"
             title="address"
