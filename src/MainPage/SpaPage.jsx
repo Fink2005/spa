@@ -1,9 +1,7 @@
-import { Carousel, Image, Modal } from "antd";
+import { Image } from "antd";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function SpaPage({ sectionRef }) {
-  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -46,14 +44,14 @@ export default function SpaPage({ sectionRef }) {
             {" "}
             <p className="text-lg text-customGreen2">
               {" "}
-              Vi Tiên Cát Spa Vi Tiên Cát quan niệm rằng, vẻ đẹp không phải thứ
-              cần thay đổi - mà nó đáng được trân trọng và yêu thương. Chúng
-              mình muốn gửi đến bạn một lời nhắn rằng: Bạn luôn xinh đẹp nhất
-              khi là chính mình! Chăm sóc da không chỉ đơn thuần là làm đẹp, mà
-              còn là cách bạn thể hiện sự quý trọng với từng đường nét làm nên
-              vẻ độc đáo của riêng mình. Vi Tiên Cát sẽ luôn đồng hành cùng bạn
-              tôn vinh sắc diện, bởi không có gì quý giá hơn khi bạn được toả
-              sáng với phiên bản chân thật nhất 💚
+              Vi Tiên Cát quan niệm rằng, vẻ đẹp không phải thứ cần thay đổi -
+              mà nó đáng được trân trọng và yêu thương. Chúng mình muốn gửi đến
+              bạn một lời nhắn rằng: Bạn luôn xinh đẹp nhất khi là chính mình!
+              Chăm sóc da không chỉ đơn thuần là làm đẹp, mà còn là cách bạn thể
+              hiện sự quý trọng với từng đường nét làm nên vẻ độc đáo của riêng
+              mình. Vi Tiên Cát sẽ luôn đồng hành cùng bạn tôn vinh sắc diện,
+              bởi không có gì quý giá hơn khi bạn được toả sáng với phiên bản
+              chân thật nhất 💚
             </p>{" "}
           </div>
         </div>
