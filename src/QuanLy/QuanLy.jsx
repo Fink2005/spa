@@ -2,6 +2,8 @@ import { Button, Checkbox, Form, Input, message } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import * as motion from "motion/react-client";
+import CashAndMoney from "./CashAndMoney";
+import CashAndMoneyMobile from "./CashAndMoneyMobile";
 export default function QuanLy() {
   const [cash, setCash] = useState(false);
   const [banking, setBanking] = useState(false);
@@ -33,7 +35,7 @@ export default function QuanLy() {
     setBanking(banking.target.checked);
   };
   return (
-    <div className="relative w-full">
+    <div className="w-full">
       <h1 className="text-center text-3xl py-5 text-green-500">
         Quản lí khách hàng <br /> Vi Tiên Cát
       </h1>
@@ -109,62 +111,8 @@ export default function QuanLy() {
               <Checkbox onChange={handleBanking}>Chuyển khoản</Checkbox>
             </Form.Item>
           </div>
-          <div className="sm:flex justify-between">
-            <Form.Item label="Thẻ DV" name="the_dv_t">
-              <Input className="lg:w-[300px]" placeholder="thẻ DV" />
-            </Form.Item>
-            {cash && (
-              <Form.Item
-                label="Thanh toán bằng tiền mặt"
-                name="tien_mat"
-                rules={[
-                  {
-                    required: true,
-                    message: "Xin vui lòng điền tiền mặt",
-                  },
-                ]}
-              >
-                <Input
-                  className="lg:w-[300px]"
-                  type="number"
-                  placeholder="Tiền mặt"
-                />
-              </Form.Item>
-            )}
-          </div>
-          <div className="sm:flex justify-between">
-            <Form.Item
-              label="Nhân viên"
-              name="nhan_vien"
-              rules={[
-                {
-                  required: true,
-                  message: "Xin vui lòng điền tên Nhân viên",
-                },
-              ]}
-            >
-              <Input className="lg:w-[300px]" placeholder="Tên nhân viên" />
-            </Form.Item>
-            {banking && (
-              <Form.Item
-                label="Thanh toán bằng ngân hàng"
-                name="chuyen_khoan"
-                rules={[
-                  {
-                    required: true,
-                    message: "Xin vui lòng điền số tiền chuyển khoản",
-                  },
-                ]}
-              >
-                <Input
-                  className="lg:w-[300px]"
-                  type="number"
-                  placeholder="Tiền ngân hàng"
-                />
-              </Form.Item>
-            )}
-          </div>
-
+          <CashAndMoney cash={cash} banking={banking} />
+          <CashAndMoneyMobile cash={cash} banking={banking} />
           <div className=" ">
             <p className="font-semibold pb-2">Ghi chú</p>
             <Form.Item name="ghi_chu" className="w-full flex justify-start">
@@ -182,28 +130,30 @@ export default function QuanLy() {
         </Form>
       </div>
       {display && (
-        <div className="fixed top-0 w-full h-full bg-green-800 z-50">
-          <motion.div
-            className="fixed top-1/3 sm:top1/2 right-1/3 sm:right-[45%] sm:-translate-x-80"
-            animate={{
-              scale: [1, 2, 2, 1, 1],
-              rotate: [0, 0, 180, 180, 0],
-              borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-            }}
-            transition={{
-              duration: 2,
-              ease: "easeInOut",
-              times: [0, 0.2, 0.5, 0.8, 1],
-              repeat: Infinity,
-              repeatDelay: 1,
-            }}
-          >
-            <img
-              src="/assets/logo.jpg"
-              className="sm:size-52 size-36 rounded-full"
-              alt=""
-            />
-          </motion.div>
+        <div className="fixed top-0 right-0 w-full  h-full bg-green-800 z-50 flex items-center justify-center">
+          <div>
+            <motion.div
+              className=""
+              animate={{
+                scale: [1, 2, 2, 1, 1],
+                rotate: [0, 0, 180, 180, 0],
+                borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+              }}
+              transition={{
+                duration: 2,
+                ease: "easeInOut",
+                times: [0, 0.2, 0.5, 0.8, 1],
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            >
+              <img
+                src="/assets/logo.jpg"
+                className="sm:size-52 size-36 rounded-full"
+                alt=""
+              />
+            </motion.div>
+          </div>
         </div>
       )}
     </div>
