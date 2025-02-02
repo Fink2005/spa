@@ -182,10 +182,10 @@ export default function QuanLy() {
           </Form.Item>
         </Form>
       </div>
-      {display && (
-        <div className="fixed top-0 left-0 w-full h-full bg-green-800 z-50">
+      {
+        <div className="fixed top-0  w-full h-full bg-green-800 z-50">
           <motion.div
-            className="absolute top-1/3 right-1/3"
+            className="fixed top-1/3 right-[45%] -translate-x-80"
             animate={{
               scale: [1, 2, 2, 1, 1],
               rotate: [0, 0, 180, 180, 0],
@@ -201,12 +201,12 @@ export default function QuanLy() {
           >
             <img
               src="/assets/logo.jpg"
-              className="size-36 rounded-full"
+              className="sm:size-52 size-36 rounded-full"
               alt=""
             />
           </motion.div>
         </div>
-      )}
+      }
     </div>
   );
 }
