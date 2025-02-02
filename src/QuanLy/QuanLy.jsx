@@ -157,6 +157,7 @@ export default function QuanLy() {
             formattedValue={formattedValue}
             formattedValue2={formattedValue2}
             handleChange={handleChange}
+            handleChange2={handleChange2}
           />
           <div className=" ">
             <p className="font-semibold pb-2">Ghi chú</p>
