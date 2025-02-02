@@ -8,7 +8,10 @@ export default function QuanLy() {
   const onFinish = (values) => {
     console.log("Success:", values);
     axios
-      .post("http://192.168.1.11:9999/write", values) // Example API
+      .post(
+        "https://manage-ggsheet-git-main-phantansy2005devs-projects.vercel.app/write",
+        values
+      ) // Example API
       .then((response) => {
         message.info("Thêm thành công");
       })
