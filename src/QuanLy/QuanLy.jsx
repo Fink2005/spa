@@ -10,7 +10,6 @@ export default function QuanLy() {
     console.log("Success:", values);
     document.body.style.overflow = "hidden";
     setDisplay(true);
-    // Re-enable scrolling after 5 seconds (5000 milliseconds)
     axios
       .post("https://managevitiencat.vercel.app/write", values) // Example API
       .then((response) => {
