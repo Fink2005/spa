@@ -1,7 +1,14 @@
 import { Form, Input } from "antd";
 import React from "react";
 
-export default function CashAndMoney({ cash, banking }) {
+export default function CashAndMoney({
+  cash,
+  banking,
+  formattedValue,
+  formattedValue2,
+  handleChange2,
+  handleChange,
+}) {
   return (
     <div className="sm:block hidden">
       <div className="sm:flex justify-between">
@@ -10,6 +17,7 @@ export default function CashAndMoney({ cash, banking }) {
         </Form.Item>
         {cash && (
           <Form.Item
+            className="sm:w-[300px] w-full"
             label="Thanh toán bằng tiền mặt"
             name="tien_mat"
             rules={[
@@ -19,11 +27,13 @@ export default function CashAndMoney({ cash, banking }) {
               },
             ]}
           >
-            <Input
-              className="lg:w-[300px]"
-              type="number"
-              placeholder="Tiền mặt"
-            />
+            <Form.Item>
+              <Input
+                value={formattedValue}
+                onChange={handleChange}
+                placeholder="Nhập số"
+              />
+            </Form.Item>
           </Form.Item>
         )}
       </div>
@@ -42,20 +52,23 @@ export default function CashAndMoney({ cash, banking }) {
         </Form.Item>
         {banking && (
           <Form.Item
+            className="w-full sm:w-[300px]"
             label="Thanh toán bằng ngân hàng"
             name="chuyen_khoan"
             rules={[
               {
                 required: true,
-                message: "Xin vui lòng điền số tiền chuyển khoản",
+                message: "Xin vui lòng điền tiền mặt",
               },
             ]}
           >
-            <Input
-              className="lg:w-[300px]"
-              type="number"
-              placeholder="Tiền ngân hàng"
-            />
+            <Form.Item>
+              <Input
+                value={formattedValue2}
+                onChange={handleChange2}
+                placeholder="Nhập số tiền"
+              />
+            </Form.Item>
           </Form.Item>
         )}
       </div>

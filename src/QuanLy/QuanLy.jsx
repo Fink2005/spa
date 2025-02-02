@@ -8,16 +8,45 @@ export default function QuanLy() {
   const [cash, setCash] = useState(false);
   const [banking, setBanking] = useState(false);
   const [display, setDisplay] = useState(false);
+  const [formattedValue, setFormattedValue] = useState("");
+  const [formattedValue2, setFormattedValue2] = useState("");
+
+  const formatNumber = (value) => {
+    if (!value) return "";
+    return value.replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Add dots every 3 digits
+  };
+
+  const handleChange = (e) => {
+    const rawValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    setFormattedValue(formatNumber(rawValue));
+  };
+  const handleChange2 = (e) => {
+    const rawValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    setFormattedValue2(formatNumber(rawValue));
+  };
   const onFinish = (values) => {
     console.log("Success:", values);
+    console.log(values);
+    const cleanedValues = {
+      ...values,
+      tien_mat: values.tien_mat ? values.tien_mat.replace(/\./g, "") : 0, // Remove dots before submitting
+      chuyen_khoan: values.chuyen_khoan
+        ? values.chuyen_khoan.replace(/\./g, "")
+        : 0,
+    };
     document.body.style.overflow = "hidden";
     setDisplay(true);
     axios
-      .post("https://managevitiencat.vercel.app/write", values) // Example API
+      .post("https://managevitiencat.vercel.app/write", cleanedValues) // Example API
       .then((response) => {
-        message.info("Thêm thành công");
+        message.info(response.data.message);
         document.body.style.overflow = "";
         setDisplay(false);
+        // const keepValue = form.getFieldValue("khach_hang"); // Example: keeping "Số hóa đơn"
+        const keepValue2 = form.getFieldValue("nhan_vien"); // Example: keeping "Số hóa đơn"
+        form.resetFields();
+        // form.setFieldsValue({ khach_hang: keepValue });
+        form.setFieldsValue({ nhan_vien: keepValue2 });
       })
       .catch((error) => {
         message.error("Thêm thất bại");
@@ -34,6 +63,7 @@ export default function QuanLy() {
   const handleBanking = (banking) => {
     setBanking(banking.target.checked);
   };
+  const [form] = Form.useForm();
   return (
     <div className="w-full">
       <h1 className="text-center text-3xl py-5 text-green-500">
@@ -41,6 +71,7 @@ export default function QuanLy() {
       </h1>
       <div className="p-5 sm:p-0 sm:flex justify-center w-full ">
         <Form
+          form={form}
           name="basic"
           scrollToFirstError
           layout="vertical"
@@ -53,6 +84,7 @@ export default function QuanLy() {
             <Form.Item label="Số hóa đơn" name="so_hd">
               <Input className="lg:w-[300px] w-full" placeholder="Số hóa đơn" />
             </Form.Item>
+
             <Form.Item
               label="Khách hàng"
               name="khach_hang"
@@ -111,8 +143,21 @@ export default function QuanLy() {
               <Checkbox onChange={handleBanking}>Chuyển khoản</Checkbox>
             </Form.Item>
           </div>
-          <CashAndMoney cash={cash} banking={banking} />
-          <CashAndMoneyMobile cash={cash} banking={banking} />
+          <CashAndMoney
+            cash={cash}
+            banking={banking}
+            formattedValue={formattedValue}
+            formattedValue2={formattedValue2}
+            handleChange={handleChange}
+            handleChange2={handleChange2}
+          />
+          <CashAndMoneyMobile
+            cash={cash}
+            banking={banking}
+            formattedValue={formattedValue}
+            formattedValue2={formattedValue2}
+            handleChange={handleChange}
+          />
           <div className=" ">
             <p className="font-semibold pb-2">Ghi chú</p>
             <Form.Item name="ghi_chu" className="w-full flex justify-start">

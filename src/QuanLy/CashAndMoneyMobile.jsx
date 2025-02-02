@@ -1,12 +1,20 @@
 import { Form, Input } from "antd";
 import React from "react";
 
-export default function CashAndMoneyMobile({ banking, cash }) {
+export default function CashAndMoneyMobile({
+  cash,
+  banking,
+  formattedValue,
+  formattedValue2,
+  handleChange2,
+  handleChange,
+}) {
   return (
     <div className="sm:hidden block">
       <div className="">
         {cash && (
           <Form.Item
+            className="w-full sm:w-[300px]"
             label="Thanh toán bằng tiền mặt"
             name="tien_mat"
             rules={[
@@ -16,29 +24,34 @@ export default function CashAndMoneyMobile({ banking, cash }) {
               },
             ]}
           >
-            <Input
-              className="lg:w-[300px]"
-              type="number"
-              placeholder="Tiền mặt"
-            />
+            <Form.Item>
+              <Input
+                value={formattedValue}
+                onChange={handleChange}
+                placeholder="Nhập số"
+              />
+            </Form.Item>
           </Form.Item>
         )}
         {banking && (
           <Form.Item
+            className="w-full sm:w-[300px]"
             label="Thanh toán bằng ngân hàng"
             name="chuyen_khoan"
             rules={[
               {
                 required: true,
-                message: "Xin vui lòng điền số tiền chuyển khoản",
+                message: "Xin vui lòng điền tiền mặt",
               },
             ]}
           >
-            <Input
-              className="lg:w-[300px]"
-              type="number"
-              placeholder="Tiền ngân hàng"
-            />
+            <Form.Item>
+              <Input
+                value={formattedValue2}
+                onChange={handleChange2}
+                placeholder="Nhập số tiền"
+              />
+            </Form.Item>
           </Form.Item>
         )}
 
