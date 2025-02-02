@@ -183,7 +183,7 @@ export default function QuanLy() {
         </Form>
       </div>
       {display && (
-        <div className="absolute top-0 left-0 w-full h-full bg-green-800 z-50">
+        <div className="fixed top-0 left-0 w-full h-full bg-green-800 z-50">
           <motion.div
             className="absolute top-1/3 right-1/3"
             animate={{
