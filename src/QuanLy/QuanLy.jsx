@@ -1,19 +1,26 @@
 import { Button, Checkbox, Form, Input, message } from "antd";
 import axios from "axios";
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import * as motion from "motion/react-client";
 export default function QuanLy() {
   const [cash, setCash] = useState(false);
   const [banking, setBanking] = useState(false);
+  const [display, setDisplay] = useState(false);
   const onFinish = (values) => {
     console.log("Success:", values);
+    document.body.style.overflow = "hidden";
+    setDisplay(true);
+    // Re-enable scrolling after 5 seconds (5000 milliseconds)
     axios
       .post("https://managevitiencat.vercel.app/write", values) // Example API
       .then((response) => {
         message.info("Thêm thành công");
+        document.body.style.overflow = "";
+        setDisplay(false);
       })
       .catch((error) => {
         message.error("Thêm thất bại");
+        setDisplay(false);
         console.log(error);
       });
   };
@@ -26,29 +33,24 @@ export default function QuanLy() {
   const handleBanking = (banking) => {
     setBanking(banking.target.checked);
   };
-
   return (
-    <div className="">
+    <div className="relative w-full">
       <h1 className="text-center text-3xl py-5 text-green-500">
-        Quản lí khách hàng Vi Tiên Cát
+        Quản lí khách hàng <br /> Vi Tiên Cát
       </h1>
-      <div className="p-5 sm:p-0 flex justify-center ms-5">
+      <div className="p-5 sm:p-0 sm:flex justify-center w-full ">
         <Form
-          className="w-[1000px]"
           name="basic"
-          style={{
-            maxWidth: 1000,
-          }}
-          initialValues={{
-            remember: true,
-          }}
+          scrollToFirstError
+          layout="vertical"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete="off"
+          autoComplete="true"
+          className="sm:w-[900px] "
         >
           <div className="sm:flex justify-between">
             <Form.Item label="Số hóa đơn" name="so_hd">
-              <Input className="lg:w-[300px]" placeholder="Số hóa đơn" />
+              <Input className="lg:w-[300px] w-full" placeholder="Số hóa đơn" />
             </Form.Item>
             <Form.Item
               label="Khách hàng"
@@ -56,7 +58,7 @@ export default function QuanLy() {
               rules={[
                 {
                   required: true,
-                  message: "xin vui lòng điền tên khách hàng",
+                  message: "Xin vui lòng điền tên khách hàng",
                 },
               ]}
             >
@@ -89,7 +91,7 @@ export default function QuanLy() {
               rules={[
                 {
                   required: true,
-                  message: "xin vui lòng điền tiền mặt",
+                  message: "Xin vui lòng điền tiền mặt",
                 },
               ]}
             >
@@ -101,7 +103,7 @@ export default function QuanLy() {
               rules={[
                 {
                   required: true,
-                  message: "xin vui lòng điền tiền chuyển",
+                  message: "Xin vui lòng điền tiền chuyển",
                 },
               ]}
             >
@@ -119,7 +121,7 @@ export default function QuanLy() {
                 rules={[
                   {
                     required: true,
-                    message: "xin vui lòng điền tiền mặt",
+                    message: "Xin vui lòng điền tiền mặt",
                   },
                 ]}
               >
@@ -138,7 +140,7 @@ export default function QuanLy() {
               rules={[
                 {
                   required: true,
-                  message: "xin vui lòng điền tên Nhân viên",
+                  message: "Xin vui lòng điền tên Nhân viên",
                 },
               ]}
             >
@@ -151,7 +153,7 @@ export default function QuanLy() {
                 rules={[
                   {
                     required: true,
-                    message: "xin vui lòng điền số tiền chuyển khoản",
+                    message: "Xin vui lòng điền số tiền chuyển khoản",
                   },
                 ]}
               >
@@ -165,14 +167,11 @@ export default function QuanLy() {
           </div>
 
           <div className=" ">
-            <Form.Item
-              label="Ghi chú"
-              name="ghi_chu"
-              className="w-full flex justify-start"
-            >
+            <p className="font-semibold pb-2">Ghi chú</p>
+            <Form.Item name="ghi_chu" className="w-full flex justify-start">
               <textarea
-                placeholder="Ghi chú"
-                className="w-[400px] border-2 rounded-md"
+                className="sm:w-[400px] w-[320px] border-2 rounded-md ps-2"
+                placeholder="Điền ghi chú"
               ></textarea>
             </Form.Item>
           </div>
@@ -183,6 +182,31 @@ export default function QuanLy() {
           </Form.Item>
         </Form>
       </div>
+      {display && (
+        <div className="absolute top-0 left-0 w-full h-full bg-green-800 z-50">
+          <motion.div
+            className="absolute top-1/3 right-1/3"
+            animate={{
+              scale: [1, 2, 2, 1, 1],
+              rotate: [0, 0, 180, 180, 0],
+              borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+            }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              times: [0, 0.2, 0.5, 0.8, 1],
+              repeat: Infinity,
+              repeatDelay: 1,
+            }}
+          >
+            <img
+              src="/assets/logo.jpg"
+              className="size-36 rounded-full"
+              alt=""
+            />
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
