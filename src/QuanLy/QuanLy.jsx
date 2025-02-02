@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, message } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as motion from "motion/react-client";
 export default function QuanLy() {
   const [cash, setCash] = useState(false);
@@ -182,10 +182,10 @@ export default function QuanLy() {
           </Form.Item>
         </Form>
       </div>
-      {
-        <div className="fixed top-0  w-full h-full bg-green-800 z-50">
+      {display && (
+        <div className="fixed top-0 w-full h-full bg-green-800 z-50">
           <motion.div
-            className="fixed top-1/3 right-[45%] -translate-x-80"
+            className="fixed top-1/3 sm:top1/2 right-1/3 sm:right-[45%] sm:-translate-x-80"
             animate={{
               scale: [1, 2, 2, 1, 1],
               rotate: [0, 0, 180, 180, 0],
@@ -206,7 +206,7 @@ export default function QuanLy() {
             />
           </motion.div>
         </div>
-      }
+      )}
     </div>
   );
 }
