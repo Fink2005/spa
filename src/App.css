@@ -1,12 +1,15 @@
 #header {
-    background-color: rgb(8,42,35)
-  };
+  background-color: rgb(8, 42, 35);
+}
 
 #main-page {
- background-color:  rgb(250,243,235);
+  background-color: rgb(250, 243, 235);
 }
 #footer {
-  background-image: url('../public/assets/imgFooter/imgFooter.jpeg') ;
+  background-image: url("../public/assets/imgFooter/imgFooter.jpeg");
   background-position: center;
-  background-size: cover  ;
+  background-size: cover;
+}
+input {
+  font-size: 20px;
 }
