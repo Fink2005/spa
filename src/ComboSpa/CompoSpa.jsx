@@ -92,7 +92,7 @@ export default function CompoSpa() {
         "Giá sản phẩm Nhật 250k",
         "  Giá sản phẩm Cao Cấp Hàn 350k",
       ],
-      img: "https://vedepnhatban.com/wp-content/uploads/2018/12/massage-nang-co-mat7.jpg",
+      img: "https://pensilia.com/wp-content/uploads/2016/11/4-cong-thuc-tre-hoa-da-don-gian-voi-sua-chua-e1688438165292-1024x710.jpg.webp",
       des: "Liệu trình nâng cơ cao cấp tại spa không chỉ là giải pháp chống lão hóa, mà còn là cách nuôi dưỡng làn da săn chắc, căng bóng tự nhiên.",
       button: (
         <a
